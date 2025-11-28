@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EduBoard Student Progress Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="EduBoard - responsive student dashboard UI built with semantic HTML and CSS">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap" role="application">
+    <nav class="sidebar" aria-label="Primary Navigation">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">EB</div>
+        <div>
+          <h1>EduBoard</h1>
+          <div class="p-muted">Student Portal</div>
+        </div>
+      </div>
+
+      <div class="nav-links" role="navigation">
+        <a href="#" class="active" data-section="dashboard"><span class="nav-icon" aria-hidden="true">🏠</span> Dashboard</a>
+        <a href="#" data-section="subjects"><span class="nav-icon" aria-hidden="true">📘</span> Subjects</a>
+        <a href="#" data-section="attendance"><span class="nav-icon" aria-hidden="true">📅</span> Attendance</a>
+        <a href="#" data-section="profile"><span class="nav-icon" aria-hidden="true">👤</span> Profile</a>
+        <a href="#" data-section="settings"><span class="nav-icon" aria-hidden="true">⚙️</span> Settings</a>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="p-muted">Logged in as</div>
+        <strong>Alex Johnson</strong>
+      </div>
+    </nav>
+
+    <main>
+      <header class="topbar">
+        <div style="display:flex;gap:12px;align-items:center;">
+          <button id="menuToggle" class="menu-btn" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+          <div class="search" role="search" aria-label="Search assignments">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="search" placeholder="Search subjects, assignments, deadlines..." aria-label="Search" />
+          </div>
+        </div>
+        <div class="profile">
+          <div class="notif" aria-live="polite" aria-label="Notifications">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0 1 18 14.158V11a6 6 0 1 0-12 0v3.159c0 .538-.214 1.055-.595 1.436L4 17h5"/>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+            </svg>
+            <span class="count" aria-hidden="true">3</span>
+          </div>
+          <div class="avatar" aria-hidden="true">AJ</div>
+        </div>
+      </header>
+      <section id="dashboard" class="view view-active" aria-label="Dashboard overview">
+        <section class="cards" aria-label="Student overview">
+          <article class="card" aria-labelledby="gpa">
+            <div class="title" id="gpa">GPA</div>
+            <div class="value">8.78</div>
+            <div class="p-muted">Cumulative GPA across semesters</div>
+          </article>
+
+          <article class="card" aria-labelledby="attendance">
+            <div class="title" id="attendance">Attendance</div>
+            <div class="value">92%</div>
+            <div class="p-muted">Days present this term</div>
+          </article>
+
+          <article class="card" aria-labelledby="assignments">
+            <div class="title" id="assignments">Assignments Due</div>
+            <div class="value">4</div>
+            <div class="p-muted">Pending assignments & quizzes</div>
+          </article>
+
+          <article class="card" aria-labelledby="credits">
+            <div class="title" id="credits">Total Credits</div>
+            <div class="value">18</div>
+            <div class="p-muted">Credits enrolled this semester</div>
+          </article>
+        </section>
+
+        <div class="grid">
+          <section class="progress" aria-labelledby="progressHeading">
+            <h2 id="progressHeading" style="margin:0 0 12px 0;">Course Progress</h2>
+
+            <table aria-describedby="progressHeading">
+              <thead>
+                <tr><th>Course</th><th>Progress</th><th>Grade</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="subject">
+                      <div>
+                        <div><strong>Calculus I</strong></div>
+                        <div class="p-muted">MATH101</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="86" data-label="86%" style="--progress:86%;">
+                      <span class="bar" style="width:86%"></span>
+                    </div>
+                  </td>
+                  <td><strong>A-</strong></td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="subject">
+                      <div>
+                        <div><strong>Physics II</strong></div>
+                        <div class="p-muted">PHYS201</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="72" data-label="72%" style="--progress:72%;">
+                      <span class="bar" style="width:72%"></span>
+                    </div>
+                  </td>
+                  <td><strong>B+</strong></td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="subject">
+                      <div>
+                        <div><strong>Data Structures</strong></div>
+                        <div class="p-muted">CS202</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="45" data-label="45%" style="--progress:45%;">
+                      <span class="bar" style="width:45%"></span>
+                    </div>
+                  </td>
+                  <td><strong>B</strong></td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="subject">
+                      <div>
+                        <div><strong>Professional Communication</strong></div>
+                        <div class="p-muted">ENG150</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="96" data-label="96%" style="--progress:96%;">
+                      <span class="bar" style="width:96%"></span>
+                    </div>
+                  </td>
+                  <td><strong>A</strong></td>
+                </tr>
+
+              </tbody>
+            </table>
+          </section>
+
+          <aside class="profile-card" aria-labelledby="profileHeading">
+            <h3 id="profileHeading">Student Profile</h3>
+            <div style="display:flex;align-items:center;gap:12px">
+              <div class="avatar" style="width:64px;height:64px;font-size:18px;">AJ</div>
+              <div>
+                <div style="font-weight:700">Alex Johnson</div>
+                <div class="p-muted">Roll No: <strong>2025-0491</strong></div>
+              </div>
+            </div>
+
+            <div class="info" aria-live="polite">
+              <div><span>Department</span><span>Information techonlogy</span></div>
+              <div><span>College</span><span>Pondicherry University</span></div>
+              <div><span>Email</span><span>alex.johnson@example.edu</span></div>
+              <div><span>Phone</span><span class="p-muted">+91 98765 43210</span></div>
+            </div>
+
+            <div style="display:flex;gap:8px;margin-top:8px">
+              <button style="flex:1;padding:10px;border-radius:10px;border:0;background:var(--accent);color:white;font-weight:700">Message</button>
+              <button style="flex:1;padding:10px;border-radius:10px;border:1px solid rgba(15,23,42,0.06);background:transparent;color:var(--accent);font-weight:700">Edit</button>
+            </div>
+
+            <div style="margin-top:12px">
+              <h4 style="margin:0 0 8px 0">Upcoming Deadlines</h4>
+              <div class="deadlines">
+                <div class="deadline">
+                  <div class="date-badge"><div>10</div><div class="p-muted">Dec</div></div>
+                  <div class="meta">
+                    <div><strong>Calculus — Problem Set 6</strong></div>
+                    <small class="p-muted">Due: Dec 10, 2025 • 11:59 PM</small>
+                  </div>
+                </div>
+
+                <div class="deadline">
+                  <div class="date-badge"><div>12</div><div class="p-muted">Dec</div></div>
+                  <div class="meta">
+                    <div><strong>Data Structures — Lab 3</strong></div>
+                    <small class="p-muted">Due: Dec 12, 2025 • 05:00 PM</small>
+                  </div>
+                </div>
+
+                <div class="deadline">
+                  <div class="date-badge"><div>18</div><div class="p-muted">Dec</div></div>
+                  <div class="meta">
+                    <div><strong>Physics — Quiz</strong></div>
+                    <small class="p-muted">Due: Dec 18, 2025 • 09:30 AM</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+        </div>
+
+        <footer>
+          © <span id="year"></span> EduBoard • Accessible & Responsive Student Dashboard
+        </footer>
+      </section>
+
+      <section id="subjects" class="view" aria-label="Subjects list">
+        <section class="cards" aria-label="Current subjects">
+          <article class="card">
+            <div class="title">MATH101</div>
+            <div class="value">Calculus I</div>
+            <div class="p-muted">4 Credits • 86% complete</div>
+          </article>
+          <article class="card">
+            <div class="title">PHYS201</div>
+            <div class="value">Physics II</div>
+            <div class="p-muted">3 Credits • 72% complete</div>
+          </article>
+          <article class="card">
+            <div class="title">CS202</div>
+            <div class="value">Data Structures</div>
+            <div class="p-muted">3 Credits • 45% complete</div>
+          </article>
+          <article class="card">
+            <div class="title">ENG150</div>
+            <div class="value">Professional Communication</div>
+            <div class="p-muted">2 Credits • 96% complete</div>
+          </article>
+        </section>
+        <section class="progress" aria-labelledby="subjectsProgressHeading" style="margin-top:16px;">
+          <h2 id="subjectsProgressHeading" style="margin:0 0 12px 0;">Subjects Progress</h2>
+          <table aria-describedby="subjectsProgressHeading">
+            <thead>
+              <tr><th>Subject</th><th>Completion</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="subject">
+                    <div>
+                      <div><strong>Calculus I</strong></div>
+                      <div class="p-muted">MATH101</div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="86" data-label="86%" style="--progress:86%;">
+                    <span class="bar" style="width:86%"></span>
+                  </div>
+                </td>
+                <td><strong>On Track</strong></td>
+              </tr>
+
+              <tr>
+                <td>
+                  <div class="subject">
+                    <div>
+                      <div><strong>Physics II</strong></div>
+                      <div class="p-muted">PHYS201</div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="72" data-label="72%" style="--progress:72%;">
+                    <span class="bar" style="width:72%"></span>
+                  </div>
+                </td>
+                <td><strong>On Track</strong></td>
+              </tr>
+
+              <tr>
+                <td>
+                  <div class="subject">
+                    <div>
+                      <div><strong>Data Structures</strong></div>
+                      <div class="p-muted">CS202</div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="45" data-label="45%" style="--progress:45%;">
+                    <span class="bar" style="width:45%"></span>
+                  </div>
+                </td>
+                <td><strong>Needs Attention</strong></td>
+              </tr>
+
+              <tr>
+                <td>
+                  <div class="subject">
+                    <div>
+                      <div><strong>Professional Communication</strong></div>
+                      <div class="p-muted">ENG150</div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="96" data-label="96%" style="--progress:96%;">
+                    <span class="bar" style="width:96%"></span>
+                  </div>
+                </td>
+                <td><strong>Excellent</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </section>
+
+      <section id="attendance" class="view" aria-label="Attendance summary">
+        <section class="cards" aria-label="Attendance overview">
+          <article class="card">
+            <div class="title">Overall Attendance</div>
+            <div class="value">92%</div>
+            <div class="p-muted">Above minimum requirement (75%)</div>
+          </article>
+          <article class="card">
+            <div class="title">Days Present</div>
+            <div class="value">78 / 85</div>
+            <div class="p-muted">This semester</div>
+          </article>
+        </section>
+      </section>
+
+      <section id="profile" class="view" aria-label="Profile details">
+        <aside class="profile-card" aria-labelledby="profileHeadingAlt">
+          <h3 id="profileHeadingAlt">Student Profile</h3>
+          <div style="display:flex;align-items:center;gap:12px">
+            <div class="avatar" style="width:64px;height:64px;font-size:18px;">AJ</div>
+            <div>
+              <div style="font-weight:700">Alex Johnson</div>
+              <div class="p-muted">Roll No: <strong>2025-0491</strong></div>
+            </div>
+          </div>
+
+          <div class="info" aria-live="polite">
+            <div><span>Department</span><span>Computer Science</span></div>
+            <div><span>College</span><span>City University</span></div>
+            <div><span>Email</span><span>alex.johnson@example.edu</span></div>
+            <div><span>Phone</span><span class="p-muted">+91 98765 43210</span></div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="settings" class="view" aria-label="Settings">
+        <section class="cards" aria-label="Portal settings">
+          <article class="card">
+            <div class="title">Theme</div>
+            <div class="value">Light</div>
+            <div class="p-muted">Change appearance of the dashboard</div>
+          </article>
+          <article class="card">
+            <div class="title">Notifications</div>
+            <div class="value">Enabled</div>
+            <div class="p-muted">Email and in-app reminders</div>
+          </article>
+        </section>
+      </section>
+    </main>
+  </div>
+  <div class="overlay" id="overlay" aria-hidden="true"></div>
+
+  <script>
+    // filler: set year and small client-side niceties
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const links = document.querySelectorAll('.nav-links a');
+    const views = document.querySelectorAll('.view');
+    const menuBtn = document.getElementById('menuToggle');
+    const overlay = document.getElementById('overlay');
+    const sidebar = document.querySelector('nav.sidebar');
+
+    links.forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        const section = link.getAttribute('data-section');
+        if (!section) return;
+
+        links.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+
+        views.forEach(view => {
+          if (view.id === section) {
+            view.classList.add('view-active');
+          } else {
+            view.classList.remove('view-active');
+          }
+        });
+
+        // close nav on mobile after navigation
+        document.body.classList.remove('nav-open');
+        if (menuBtn) menuBtn.setAttribute('aria-expanded','false');
+      });
+    });
+
+    function openNav(){
+      document.body.classList.add('nav-open');
+      if (menuBtn) menuBtn.setAttribute('aria-expanded','true');
+    }
+    function closeNav(){
+      document.body.classList.remove('nav-open');
+      if (menuBtn) menuBtn.setAttribute('aria-expanded','false');
+    }
+    if (menuBtn){
+      menuBtn.addEventListener('click', () => {
+        if (document.body.classList.contains('nav-open')) closeNav(); else openNav();
+      });
+    }
+    if (overlay){
+      overlay.addEventListener('click', closeNav);
+    }
+  </script>
+</body>
+</html>
